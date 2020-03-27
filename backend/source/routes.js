@@ -1,0 +1,20 @@
+const express = require('express');
+const ngoController = require('./controllers/ngoController')
+const incidentController = require('./controllers/incidentController')
+const profileController = require('./controllers/profileController')
+const sessionController = require('./controllers/sessionController')
+
+const routes = express.Router();
+
+routes.get('/ngos', ngoController.index);
+routes.post('/ngos', ngoController.create);
+
+routes.post('/sessions', sessionController.create)
+
+routes.get('/profile', profileController.index)
+
+routes.get('/incidents', incidentController.index);
+routes.post('/incidents', incidentController.create);
+routes.delete('/incidents/:id', incidentController.remove);
+
+module.exports = routes;
